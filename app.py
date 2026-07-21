@@ -147,7 +147,7 @@ else:
         )
         
         # Sekarang buat kolom biasa, tapi sudah dipaksa sejajar oleh CSS di atas
-        col1, col2, col3 = st.columns([1, 2, 1])
+        col1, col2, col3 = st.columns([2, 3, 2])
         
         with col1:
             if idx > 0:
