@@ -76,8 +76,8 @@ LIST_CERITA = [
     """,
     # -----------------------------------------
     """
-    by, now im scared.
-    im scared, that i will got social punishment.
+    by, now im scared. im scared, that i will got social punishment.
+    
     im too scared if u r breakup. 
     im too scared that she or her friends will make me viral or something like post me on social media.
     idc abt me, but if my family know it….. 
