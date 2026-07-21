@@ -131,24 +131,35 @@ else:
         
         st.write("---") # Garis pembatas visual
         
-        # Menggunakan kolom yang sangat kecil jaraknya khusus untuk menaruh tombol berdampingan di tengah
-        _, center_col, _ = st.columns([1, 8, 1])
+        # Trik CSS agar tombol di dalam container ini dipaksa sejajar ke samping (flexbox)
+        st.markdown(
+            """
+            <style>
+            [data-testid="stHorizontalBlock"] {
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
         
-        with center_col:
-            # Wadah horizontal agar tombol & teks tetap sejajar di layar HP
-            sub_col1, sub_col2, sub_col3 = st.columns([1, 2, 1])
-            
-            with sub_col1:
-                if idx > 0:
-                    st.button("◀", on_click=cerita_sebelumnya, key="btn_prev")
-                else:
-                    st.button("◀", disabled=True, key="btn_prev_dis")
-                    
-            with sub_col2:
-                st.markdown(f"<p style='text-align: center; font-size: 14px; margin-top: 5px; color: gray;'>{idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
+        # Sekarang buat kolom biasa, tapi sudah dipaksa sejajar oleh CSS di atas
+        col1, col2, col3 = st.columns([1, 2, 1])
+        
+        with col1:
+            if idx > 0:
+                st.button("◀", on_click=cerita_sebelumnya, key="btn_prev", use_container_width=True)
+            else:
+                st.button("◀", disabled=True, key="btn_prev_dis", use_container_width=True)
                 
-            with sub_col3:
-                if idx < len(LIST_CERITA) - 1:
-                    st.button("▶", on_click=cerita_selanjutnya, key="btn_next")
-                else:
-                    st.button("▶", disabled=True, key="btn_next_dis")
+        with col2:
+            st.markdown(f"<p style='text-align: center; font-size: 16px; margin: 0; padding-top: 8px; color: gray;'>Hal {idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
+            
+        with col3:
+            if idx < len(LIST_CERITA) - 1:
+                st.button("▶", on_click=cerita_selanjutnya, key="btn_next", use_container_width=True)
+            else:
+                st.button("▶", disabled=True, key="btn_next_dis", use_container_width=True)
