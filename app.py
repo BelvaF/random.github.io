@@ -145,7 +145,7 @@ else:
                     st.button("◀", disabled=True, key="btn_prev_dis")
                     
             with sub_col2:
-                st.markdown(f"<p style='text-align: center; font-size: 14px; margin-top: 5px; color: gray;'>Hal {idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p style='text-align: center; font-size: 14px; margin-top: 5px; color: gray;'>{idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
                 
             with sub_col3:
                 if idx < len(LIST_CERITA) - 1:
