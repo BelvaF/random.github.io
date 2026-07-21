@@ -1,79 +1,3 @@
-# import streamlit as st
-
-# USER_DATA = {
-#     "by": "21",
-# }
-
-# # Inisialisasi session state
-# if "auth" not in st.session_state:
-#     st.session_state.auth = False
-# if "halaman" not in st.session_state:
-#     st.session_state.halaman = "utama"  # Untuk melacak posisi halaman setelah login
-
-
-# def login():
-#     username = st.session_state.input_user
-#     password = st.session_state.input_pass
-    
-#     if username in USER_DATA and USER_DATA[username] == password:
-#         st.session_state.auth = True
-#         st.session_state.user_aktif = username
-#         st.session_state.halaman = "utama"  # Set ke halaman utama setelah sukses login
-#     else:
-#         st.error("Heh, Gaboleh masukkk")
-
-
-# def logout():
-#     st.session_state.auth = False
-#     st.session_state.user_aktif = None
-#     st.session_state.halaman = "utama"
-#     st.toast("See yaaaa!")
-
-
-# def pindah_ke_awal():
-#     st.session_state.halaman = "awal"
-
-
-# # View web
-# if not st.session_state.auth:
-#     # Form login
-#     st.title("HAAAIIIII")
-#     st.subheader("Cobaa tebaakkk, uname sama pw-nya apaaa wkwkwkwk")
-#     with st.form("form_login"):
-#         st.text_input("Apa yaa usernamenya", key="input_user")
-#         st.text_input("Kira-kira apa yaa passwordnya", type="password", key="input_pass")
-#         st.form_submit_button("yakinn gaa? kalau yakin, boleeh klikk", on_click=login)
-        
-# else:
-#     # Menu Sidebar (Selalu muncul saat login)
-#     with st.sidebar:
-#         st.write(f"Login sebagai: **{st.session_state.user_aktif}**")
-#         st.button("Log Out", on_click=logout)
-
-#     # Kontrol tampilan berdasarkan state 'halaman'
-#     if st.session_state.halaman == "utama":
-#         st.title(f"HAIIII, {st.session_state.user_aktif}!")
-#         st.write("byyy, u know how much i love u kan? u can feel it kan? answer it first")
-#         st.write("akuu random mau ngomong dan in different way ajaa. Soalnya aku kayaknya gabisa ngomong langsung, tapi aku pengen liat your live reaction ehehhehe")
-        
-#         # Mengubah fungsi tombol untuk mengganti state halaman
-#         st.button("letss gowww", on_click=pindah_ke_awal)
-
-#     elif st.session_state.halaman == "awal":
-#         # Halaman baru yang bersih setelah tombol di-klik
-#         st.title("Cerita Random ✨")
-#         st.write("Yaaahhh, aku pengen ngomong random ajaa. Aku pengen liat your live reaction ehehhehe")
-        
-#         # Tombol opsional untuk kembali ke halaman sebelumnya jika mau
-#         if st.button("Kembali"):
-#             st.session_state.halaman = "utama"
-#             st.rerun()
-
-
-
-# #  hallo git
-
-
 import streamlit as st
 
 USER_DATA = {
@@ -207,29 +131,24 @@ else:
         
         st.write("---") # Garis pembatas visual
         
-        # Membuat layout tombol panah kiri dan kanan di bawah menggunakan columns
-        col1, col2, col3 = st.columns([1, 4, 1])
+        # Menggunakan kolom yang sangat kecil jaraknya khusus untuk menaruh tombol berdampingan di tengah
+        _, center_col, _ = st.columns([1, 8, 1])
         
-        with col1:
-            # Tombol panah kiri (Previous) - dinonaktifkan jika di halaman pertama
-            if idx > 0:
-                st.button("⬅️ Back", on_click=cerita_sebelumnya)
-            else:
-                st.button("⬅️ Back", disabled=True)
+        with center_col:
+            # Wadah horizontal agar tombol & teks tetap sejajar di layar HP
+            sub_col1, sub_col2, sub_col3 = st.columns([1, 2, 1])
+            
+            with sub_col1:
+                if idx > 0:
+                    st.button("◀", on_click=cerita_sebelumnya, key="btn_prev")
+                else:
+                    st.button("◀", disabled=True, key="btn_prev_dis")
+                    
+            with sub_col2:
+                st.markdown(f"<p style='text-align: center; font-size: 14px; margin-top: 5px; color: gray;'>Hal {idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
                 
-        with col2:
-            # Penanda posisi halaman (misal: Halaman 1 dari 3)
-            st.markdown(f"<p style='text-align: center; color: gray;'>Halaman {idx + 1} dari {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
-
-        with col3:
-            # Tombol panah kanan (Next) - dinonaktifkan jika di halaman terakhir
-            if idx < len(LIST_CERITA) - 1:
-                st.button("Next ➡️", on_click=cerita_selanjutnya)
-            else:
-                st.button("Next ➡️", disabled=True)
-        
-        # # Tombol kembali ke Halaman Utama diletakkan di bagian paling bawah
-        # st.write("")
-        # if st.button("Kembali ke Menu Utama"):
-        #     st.session_state.halaman = "utama"
-        #     st.rerun()
+            with sub_col3:
+                if idx < len(LIST_CERITA) - 1:
+                    st.button("▶", on_click=cerita_selanjutnya, key="btn_next")
+                else:
+                    st.button("▶", disabled=True, key="btn_next_dis")
