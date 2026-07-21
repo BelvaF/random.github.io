@@ -122,6 +122,7 @@ else:
         
         st.button("letss gowww", on_click=pindah_ke_awal)
 
+   
     elif st.session_state.halaman == "awal":
         st.title("Cerita Random ✨")
         
@@ -131,35 +132,21 @@ else:
         
         st.write("---") # Garis pembatas visual
         
-        # Trik CSS agar tombol di dalam container ini dipaksa sejajar ke samping (flexbox)
-        st.markdown(
-            """
-            <style>
-            [data-testid="stHorizontalBlock"] {
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+        # Membuat 3 kolom besar, kita hanya pakai kolom tengah (col2) agar posisinya di tengah layar
+        col1, col2, col3 = st.columns([2, 1, 2])
         
-        # Sekarang buat kolom biasa, tapi sudah dipaksa sejajar oleh CSS di atas
-        col1, col2, col3 = st.columns([2, 3, 2])
-        
-        with col1:
-            if idx > 0:
-                st.button("◀", on_click=cerita_sebelumnya, key="btn_prev", use_container_width=True)
-            else:
-                st.button("◀", disabled=True, key="btn_prev_dis", use_container_width=True)
-                
         with col2:
-            st.markdown(f"<p style='text-align: center; font-size: 16px; margin: 0; padding-top: 8px; color: gray;'>Hal {idx + 1} / {len(LIST_CERITA)}</p>", unsafe_allow_html=True)
+            # Di dalam kolom tengah, kita bagi 2 kolom kecil yang pas banget buat dua tombol
+            sub_col1, sub_col2 = st.columns([1, 1])
             
-        with col3:
-            if idx < len(LIST_CERITA) - 1:
-                st.button("▶", on_click=cerita_selanjutnya, key="btn_next", use_container_width=True)
-            else:
-                st.button("▶", disabled=True, key="btn_next_dis", use_container_width=True)
+            with sub_col1:
+                if idx > 0:
+                    st.button("◀", on_click=cerita_sebelumnya, key="btn_prev", use_container_width=True)
+                else:
+                    st.button("◀", disabled=True, key="btn_prev_dis", use_container_width=True)
+                    
+            with sub_col2:
+                if idx < len(LIST_CERITA) - 1:
+                    st.button("▶", on_click=cerita_selanjutnya, key="btn_next", use_container_width=True)
+                else:
+                    st.button("▶", disabled=True, key="btn_next_dis", use_container_width=True)
