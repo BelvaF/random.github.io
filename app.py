@@ -124,7 +124,7 @@ else:
 
    
     elif st.session_state.halaman == "awal":
-        st.title("Cerita Random ✨")
+        st.title("My Thoughts")
         
         # Ambil cerita berdasarkan index halaman_cerita saat ini
         idx = st.session_state.halaman_cerita
