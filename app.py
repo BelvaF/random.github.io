@@ -141,12 +141,12 @@ else:
             
             with sub_col1:
                 if idx > 0:
-                    st.button("◀", on_click=cerita_sebelumnya, key="btn_prev", use_container_width=True)
+                    st.button("◀ previous", on_click=cerita_sebelumnya, key="btn_prev", use_container_width=True)
                 else:
-                    st.button("◀", disabled=True, key="btn_prev_dis", use_container_width=True)
+                    st.button("◀ previous", disabled=True, key="btn_prev_dis", use_container_width=True)
                     
             with sub_col2:
                 if idx < len(LIST_CERITA) - 1:
-                    st.button("▶", on_click=cerita_selanjutnya, key="btn_next", use_container_width=True)
+                    st.button("next ▶", on_click=cerita_selanjutnya, key="btn_next", use_container_width=True)
                 else:
-                    st.button("▶", disabled=True, key="btn_next_dis", use_container_width=True)
+                    st.button("next ▶", disabled=True, key="btn_next_dis", use_container_width=True)
