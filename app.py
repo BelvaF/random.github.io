@@ -45,15 +45,15 @@ LIST_CERITA = [
     
     I love you literally that much. I don't know how it grows, but it naturally increases day by day.
     
-    i never met a man like you. literally never. maybe there is one most like him, like Kak Ojan (Kak Put’s husband) hehe.
+    i never met a man like you. literally never. maybe there is one most like, Kak Ojan (Kak Put’s husband) hehe.
     """,
     # -----------------------------------------
     """
-    by, meeting you is one of my greatest gratefulness. i found a man—a man who is (almost) exactly like everything i have ever been thinking of. 
+    by, meeting you is one of my greatest gratefulness. i found a man. a man (almost) like i have been thinking of. 
     
     thank you so much for coming into my life, even though in this unexpected way. 
     
-    maybe it's only been 3 months, but for me, it's been such a colorful ride. i can feel the happiness, safety, your gentleman treatment, the scared, the confused... all mixed
+    maybe it's only been 3 months, but for me, it's been such a colorful ride. i can feel the happiness, safety, your gentleman treatment, the scared, the confused, etc. mixed feelings.
     """,
     # -----------------------------------------
     """
@@ -61,7 +61,7 @@ LIST_CERITA = [
     """,
     # -----------------------------------------
     """
-    let's talk about a fun fact about me? wkkwkw.
+    let's talk a fun fact about me? but i guess, u already know sih wkwkwkwk.
     
     by, i actually **hate** smokers and drinkers. but i don't know why i can accept you, meanwhile i know you are both.
     
@@ -70,20 +70,20 @@ LIST_CERITA = [
     and i think i know why i am like this. day by day knowing you, i realized something. 
     you are such a gentleman, you respect and see up to your parents (especially your mom), and you have a bunch of knowledge. 
     
-    and it completely changes my pov about things. 
+    and it completely changes my pov about that things. 
     
     enough. that's the fun fact wkwkwkw.
     """,
     # -----------------------------------------
     """
     by, now im scared. im scared, that i will got social punishment.
-    
-    im too scared if u r breakup. 
-    im too scared that she or her friends will make me viral or something like post me on social media.
-    idc abt me, but if my family know it….. 
+
+    im too scared if u r breakup.
+    im too scared that she or her friends will post me on their social media.
+    idc abt me, but if my family know it...
     i dont even know what would i do.
 
-    by, lets talk abt this?
+    by, lets talk abt this? wdyt? what should i do?
     """
 ]
 
